@@ -377,10 +377,6 @@ void ble_evt_attributes_value(const struct ble_msg_attributes_value_evt_t *msg)
 {
 }
 
-void ble_evt_attributes_user_read_request(const struct ble_msg_attributes_user_read_request_evt_t *msg)
-{
-}
-
 void ble_evt_attributes_status(const struct ble_msg_attributes_status_evt_t *msg)
 {
 }
@@ -449,11 +445,6 @@ void ble_evt_gap_scan_response(
 		const struct ble_msg_gap_scan_response_evt_t *msg) {
 }
 
-void ble_evt_connection_status(
-		const struct ble_msg_connection_status_evt_t *msg) {
-
-}
-
 void ble_evt_attclient_group_found(
 		const struct ble_msg_attclient_group_found_evt_t *msg) {
 
@@ -474,6 +465,8 @@ void ble_evt_attclient_attribute_value(
 
 }
 
+void ble_evt_attributes_user_read_request(const struct ble_msg_attributes_user_read_request_evt_t *msg) {
+}
 
 /**Reset system**/
 void ble_rsp_dfu_reset(const void *nul)

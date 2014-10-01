@@ -7,6 +7,7 @@
 
 #include "utils.h"
 
+#define RETRY_NUM 5000
 
 //*****************************************************************************
 //
@@ -34,13 +35,16 @@ UART4Send(const uint8_t *pui8Buffer, uint32_t ui32Count)
     //
     // Loop while there are more characters to send.
     //
-    while(ui32Count--)
-    {
-        //
-        // Write the next character to the UART.
-        //
-        ROM_UARTCharPutNonBlocking(UART4_BASE, *pui8Buffer++);
-    }
+	int i;
+	for (i = 0; i < ui32Count; i++) {
+		//
+		// Write the next character to the UART.
+		//
+		ROM_UARTCharPut(UART4_BASE, pui8Buffer[i]);
+		//UARTprintf("%02x ", pui8Buffer[i]);
+
+	}
+	//UARTprintf("\n>");
 }
 
 // Receive data from the UART
@@ -48,6 +52,7 @@ void
 UART4Receive(uint8_t *pui8Buffer, uint32_t ui32Count)
 {
 	int i = 0;
+	int j = 0;
     //
     // Loop while there are more data expected.
     //
@@ -59,6 +64,12 @@ UART4Receive(uint8_t *pui8Buffer, uint32_t ui32Count)
     	if (ROM_UARTCharsAvail(UART4_BASE)) {
     		pui8Buffer[i++] = ROM_UARTCharGetNonBlocking(UART4_BASE);
         	ui32Count--;
+        	j = 0;
+    	}
+
+    	j++;
+    	if (j > RETRY_NUM) {
+    		break;
     	}
     }
 }

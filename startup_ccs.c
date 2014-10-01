@@ -57,6 +57,7 @@ extern uint32_t __STACK_TOP;
 //
 //*****************************************************************************
 extern void IntGPIOE(void);
+extern void IntGPIOF(void);
 extern void MPU9150I2CIntHandler(void);
 extern void UARTStdioIntHandler(void);
 extern void RGBBlinkIntHandler(void);
@@ -119,7 +120,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // Analog Comparator 2
     IntDefaultHandler,                      // System Control (PLL, OSC, BO)
     IntDefaultHandler,                      // FLASH Control
-    IntDefaultHandler,                      // GPIO Port F
+    IntGPIOF,                      // GPIO Port F
     IntDefaultHandler,                      // GPIO Port G
     IntDefaultHandler,                      // GPIO Port H
     IntDefaultHandler,                      // UART2 Rx and Tx
