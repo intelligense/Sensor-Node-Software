@@ -1089,9 +1089,9 @@ int main(void) {
 //			UARTprintf("%3d.%03d, ", i32IPart[7], i32FPart[7]);
 //			UARTprintf("%3d.%03d\n", i32IPart[8], i32FPart[8]);
 //
-			//
-			// Print the direction in the table.
-			//
+//			//
+//			// Print the direction in the table.
+//			//
 //			UARTprintf("%3d.%03d\n", i32IPart[16], i32FPart[16]);
 //			//
 //			// Print the Eulers in a table.
