@@ -1,0 +1,13 @@
+xgatt_battery 21
+Acceleration Data 25
+Acceleration Config 29
+Acceleration Period 32
+Gyroscope Data 36
+Gyroscope Config 40
+Gyroscope Period 43
+Magnetometer Data 47
+Magnetometer Config 51
+Magnetometer Period 54
+Euler Angle Data 58
+Euler Angle Config 62
+Euler Angle Period 65

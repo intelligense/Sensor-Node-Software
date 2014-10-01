@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <service uuid="1800">
+      <description>Generic Access Service</description>
+
+      <characteristic uuid="2a00">
+        <properties read="true" const="true" />
+        <value>SensorModule5</value>
+      </characteristic>
+
+      <characteristic uuid="2a01">
+        <properties read="true" const="true" />
+        <value type="hex">8000</value>
+      </characteristic>
+	  
+      <characteristic uuid="2a02">
+        <properties read="true" write="true" />
+        <value type="hex">00</value>
+      </characteristic>
+	  
+      <characteristic uuid="2a03">
+		<description>Reconnection Address</description>
+        <properties read="true" write="true" />
+        <value type="hex" length="16">0</value>
+      </characteristic>
+    </service>
+	
+    <service type="primary" uuid="9000" id="manufacturer">
+        <characteristic uuid="9100">
+            <properties read="true" const="true" />
+            <value type="hex">000780c0ffeef00d</value>
+        </characteristic>
+        <characteristic uuid="9101">
+            <properties read="true" const="true" />
+            <value>modelnumber</value>
+        </characteristic>
+        <characteristic uuid="9106">
+            <properties read="true" const="true" />
+            <value>Bluegiga</value>
+        </characteristic>
+    </service>
+
+    <service uuid="e001">
+       <description>Battery status</description>
+       <include id="manufacturer" />
+      <characteristic uuid="e101" id="xgatt_battery">
+          <properties read="true" notify="true" />
+          <value type="hex">0e21</value>
+      </characteristic>
+    </service>
+	
+	<service uuid="0667c144-6bbf-4a6b-96d7-40e2233a5962">
+       <description>Accelerometer Service</description>
+      <characteristic uuid="3bcea24f-99d5-44bd-b795-3cfdf6544c72" id="Acceleration Data">
+		  <description>Data</description>
+          <properties read="true" notify="true" />
+          <value type="hex" length="12">0</value>
+      </characteristic>
+      <characteristic uuid="2c242d78-42e3-4d6a-9062-4e4643313e74" id="Acceleration Config">
+		  <description>Config</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="1">0</value>
+      </characteristic>
+      <characteristic uuid="bfd7fcc8-6067-47bf-bfb1-47277b2f1e09" id="Acceleration Period">
+		  <description>Period</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="4">0</value>
+      </characteristic>
+    </service>
+	
+	<service uuid="35950f04-747c-47d9-a5f4-14405e57885f">
+       <description>Gyroscope Service</description>
+      <characteristic uuid="4f9284c5-639f-4a07-b4e0-0c516989028c" id="Gyroscope Data">
+		  <description>Data</description>
+          <properties read="true" notify="true" />
+          <value type="hex" length="12">0</value>
+      </characteristic>
+      <characteristic uuid="5adef8ca-fc1a-42b0-a7b8-428825d2ac8f" id="Gyroscope Config">
+		  <description>Config</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="1">0</value>
+      </characteristic>
+      <characteristic uuid="7027e6c5-dd93-4990-a090-e74a7a4ab021" id="Gyroscope Period">
+		  <description>Period</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="4">0</value>
+      </characteristic>
+    </service>
+	
+	<service uuid="44da6c78-dec0-4e2d-b55c-0197ec007dfa">
+       <description>Magnetometer Service</description>
+      <characteristic uuid="a1c0be45-9d95-4512-ab3a-6b304b8e4bab" id="Magnetometer Data">
+		  <description>Data</description>
+          <properties read="true" notify="true" />
+          <value type="hex" length="12">0</value>
+      </characteristic>
+      <characteristic uuid="bb96d47f-2b43-4c8a-93c4-7e87def53763" id="Magnetometer Config">
+		  <description>Config</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="1">0</value>
+      </characteristic>
+      <characteristic uuid="a9a2add5-11a5-4978-a0c4-37106f9ce89f" id="Magnetometer Period">
+		  <description>Period</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="4">0</value>
+      </characteristic>
+    </service>
+	
+	<service uuid="4297b65e-1218-4d07-a203-9c1413b26430">
+       <description>Euler Angle Service</description>
+      <characteristic uuid="41c590ce-154b-46b8-9892-db4edd6a8ca6" id="Euler Angle Data">
+		  <description>Data</description>
+          <properties read="true" notify="true" />
+          <value type="hex" length="12">0</value>
+      </characteristic>
+      <characteristic uuid="6cd98885-babe-4733-bfaf-0fe5da52d9ed" id="Euler Angle Config">
+		  <description>Config</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="1">0</value>
+      </characteristic>
+      <characteristic uuid="5ff9210a-0ec0-4c8b-aa88-7418a740bf6b" id="Euler Angle Period">
+		  <description>Period</description>
+          <properties read="true" write="true" />
+          <value type="hex" length="4">0</value>
+      </characteristic>
+    </service>
+</configuration>
