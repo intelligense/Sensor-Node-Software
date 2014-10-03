@@ -161,7 +161,7 @@ volatile uint_fast8_t g_vui8DataFlag;
 // Global counter to control and slow down the rate of data to the terminal.
 //
 //*****************************************************************************
-#define PRINT_SKIP_COUNT        5
+#define PRINT_SKIP_COUNT        1
 
 uint32_t g_ui32PrintSkipCounter;
 
@@ -779,9 +779,9 @@ int main(void) {
 	MPU9150AppI2CWait(__FILE__, __LINE__);
 
 	//
-	// Configure the sampling rate.
+	// Configure the sampling rate to 1000 Hz / (1+24).
 	//
-	g_sMPU9150Inst.pui8Data[0] = 4;
+	g_sMPU9150Inst.pui8Data[0] = 24;
 	MPU9150Write(&g_sMPU9150Inst, MPU9150_O_SMPLRT_DIV, g_sMPU9150Inst.pui8Data,
 			1, MPU9150AppCallback, &g_sMPU9150Inst);
 
@@ -823,10 +823,10 @@ int main(void) {
 	MPU9150AppI2CWait(__FILE__, __LINE__);
 
 	//
-	// Initialize the DCM system. 50 hz sample rate.
+	// Initialize the DCM system. 40 hz sample rate.
 	// accel weight = .2, gyro weight = .8, mag weight = .2
 	//
-	CompDCMInit(&g_sCompDCMInst, 1.0f / 50.0f, 0.2f, 0.6f, 0.2f);
+	CompDCMInit(&g_sCompDCMInst, 1.0f / 40.0f, 0.2f, 0.6f, 0.2f);
 
 	//
 	// Enable blinking indicates config finished successfully
