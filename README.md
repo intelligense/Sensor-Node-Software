@@ -12,9 +12,11 @@ The project is developed on an example project provided by TI.
 3. utils.c and utils.h are the utility files that handles UART communication, allowing the project to print messages to PC via ICDI as well as communicate with the BLE module.
 4. cmd_def.c, cmd_def.h, and apitypes.h are BGLib library files which handles communication with BLE module.
 5. stub.c, stores unused BGLib library methods.
+
 ##Interrupts
 1. MPU9150 "Data Ready" interrupt,
 2. UART4 interrupt,
+
 ##
 
 
